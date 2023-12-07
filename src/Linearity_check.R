@@ -172,12 +172,22 @@ lm_filtered <- filtered_df %>%
             R_squared = summary(lm(log_area ~ log_conc))$r.squared)
 lm_filtered$group <- paste0(lm_filtered$dilution, "_", lm_filtered$mode)
 
+# Calculate the number of unique molecules
+num_unique_molecules <- length(unique(filtered_df$Molecule))
+
+# Set the desired number of columns and rows in each page
+ncol_per_page <- 3
+nrow_per_page <- 4
+
+# Calculate the total number of pages
+total_pages <- ceiling(num_unique_molecules / (ncol_per_page * nrow_per_page))
+
 pdf("plots/concentration_curves_corrected_4min.pdf")
-for(i in 1:10){
+for(i in 1:total_pages){
   print(ggplot(filtered_df, aes(log_conc, log_area, color = group)) +
           geom_point() +
           geom_abline(data=lm_filtered, aes(intercept = Intercept, slope = Slope, color = group)) +
-          facet_wrap_paginate(~Molecule, scales = "free_y", ncol = 3, nrow= 3, page = i) +
+          facet_wrap_paginate(~Molecule, scales = "free_y", ncol = 3, nrow= 4, page = i) +
           theme_classic() +
           scale_color_manual(values = colour_mode, name = "Dilution & mode", labels = c("neg_1:2", "pos_1:2", "neg_1:3", "pos_1:3")) +
           labs(title = "Mixed mode 4min", x = "log10 concentration [uM]"))
