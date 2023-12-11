@@ -39,7 +39,7 @@ We therefore use a range of +/- 0.25 from the "perfect" dilution change (0.5 for
 
 Here, we match the median retention times of the cleaned up standard curves to a library of measured single-standards. This was to double-check whether the automatic skyline analysis picked the right peaks to integrate the area under. An example of these retention time shifts histograms looks like this:
 
-![rt_shift_histo](examples/retentiontimeshift_neg.png)
+![rt_shift_histo](examples/retetiontimeshift_neg.png)
 
 
 ## 05 15min data import and linearity check
