@@ -33,4 +33,4 @@ As the detection limit is reached, standard curves lose their linearity and are 
 
 We therefore use a range of +/- 0.25 from the "perfect" dilution change (0.5 for 1:2 and 0.33 for 1:3) and remove all rows as soon as this range is not met. We then fit the linear model again, this time for each molecule, each mode and each dilutionseries individually. We then facet_paginate the different metabolits, visualizing the different standard dilutions in both modes. An example of part of the multi-page pdf looks like this:
 
-![correctedlines](03_concentrationcurves_corrected.png)
+![correctedlines](examples/03_concentrationcurves_corrected.png)
