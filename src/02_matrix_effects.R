@@ -12,7 +12,6 @@ quant_pos <- quant_conc |>
 quant_neg <- quant_conc |> 
   filter(mode == "neg")
 
-
 #Fit different linear model for each mode
 standard_curve_neg <- quant_neg %>%
   filter(log_area != 0) %>% 
