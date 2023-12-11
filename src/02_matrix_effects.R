@@ -5,6 +5,13 @@
 
 #Fit linear models for standard lines and R squares for determination of matrix effects
 ######################################################################################################################
+#separate positive and negative mode measurements
+quant_pos <- quant_conc |> 
+  filter(mode == "pos")
+
+quant_neg <- quant_conc |> 
+  filter(mode == "neg")
+
 #Fit different linear model for each mode
 standard_curve_neg <- quant_neg %>%
   filter(log_area != 0) %>% 
