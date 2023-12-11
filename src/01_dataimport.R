@@ -4,14 +4,9 @@
 #####################################################
 
 
-{
-  library(tidyverse)
-  library(ggplot2)
-  library(forstringr)
-  library(ggpmisc)
-  library(ggforce)
-  library(readxl)
-}
+#Import required packages and functions
+source("gutPackages.R")
+gutPackages()
 
 #Import analysis from Skyline together with Standard concentration curves & extract metadata from samplename
 ######################################################################################################################
