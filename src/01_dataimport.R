@@ -5,8 +5,8 @@
 
 
 #Import required packages and functions
-source("gutPackages.R")
-gutPackages()
+source("metabolomics_packages.R")
+metabolomicPackages()
 
 #Import analysis from Skyline together with Standard concentration curves & extract metadata from samplename
 ######################################################################################################################
