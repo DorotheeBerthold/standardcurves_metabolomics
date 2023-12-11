@@ -4,14 +4,9 @@
 #####################################################
 
 
-{
-  library(tidyverse)
-  library(ggplot2)
-  library(forstringr)
-  library(ggpmisc)
-  library(ggforce)
-  library(readxl)
-}
+#Import required packages and functions
+source("metabolomics_packages.R")
+metabolomicPackages()
 
 #Import analysis from Skyline together with Standard concentration curves & extract metadata from samplename
 ######################################################################################################################
@@ -81,10 +76,3 @@ quant_conc <- bind_rows(quant2, quant3)
 
 #generate grouping column for plotting
 quant_conc$group <- paste0(quant_conc$background, "_", quant_conc$dilution)
-
-#separate positive and negative mode measurements
-quant_pos <- quant_conc |> 
-  filter(mode == "pos")
-
-quant_neg <- quant_conc |> 
-  filter(mode == "neg")
